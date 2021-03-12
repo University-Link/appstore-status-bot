@@ -7,6 +7,7 @@ const db = dirty('store.db');
 const env = Object.create(process.env);
 
 exec('ruby Sources/fetch_app_status.rb', {env : env}, function (err, stdout, stderr) {
+    console.log(env);
     if (stdout) {
         var apps = JSON.parse(stdout);
         for(let app of apps) {
